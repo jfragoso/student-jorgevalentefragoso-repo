@@ -1,6 +1,9 @@
-FROM python:3.9
+FROM python:3.9-slim-bookworm
 WORKDIR /app
 COPY . .
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends gcc && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN pip install gunicorn
 RUN pip install -r requirements.txt
 ENV PORT=80
