@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: student-jorge-app
-          image: us-central1-docker.pkg.dev/devsecops-lab-464018/student-jorgevalentefragoso/student-jorge-app:latest
+          image: ${IMAGE}
           ports:
             - containerPort: 3000
           env:
